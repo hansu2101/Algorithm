@@ -1,6 +1,6 @@
 from collections import deque
 
-v,e = map(int, input().split())
+v,e,start = map(int, input().split())
 
 indegree= [0] * (v+1)
 
@@ -13,7 +13,7 @@ for _ in range(e):
 def topology_sort():
     result = []
     q = deque()
-
+    q.append(start)
     for i in range(1, v+1):
         if indegree[i] == 0:
             q.append(i)
@@ -29,3 +29,4 @@ def topology_sort():
         print(i, end= ' ')
 
 topology_sort()
+# 1 2 3 4 5
